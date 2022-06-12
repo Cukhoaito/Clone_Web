@@ -1,0 +1,77 @@
+/* PC */
+@media (min-width: 64em) {
+}
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+/* Mobile */
+@media (max-width: 46.1875em) {
+  #menu {
+    display: flex;
+  }
+  #head {
+    overflow: hidden;
+  }
+  #nav > li {
+    /* display: flex; */
+    position: relative;
+  }
+  #nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  #nav .subnav {
+    position: initial;
+    background-color: #333;
+  }
+  #nav .subnav a {
+    color: white;
+    padding: 2px 36px;
+  }
+  #text-content {
+    display: none;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+  .col {
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .col-third {
+    width: 100%;
+  }
+  #content .col-third .image {
+    height: 220px;
+    margin-bottom: 46px;
+  }
+  #search {
+    display: none;
+  }
+  .margin-page {
+    margin-bottom: 0px;
+  }
+  #content .section-col .user-info {
+    flex-direction: column;
+  }
+  #content .section-col {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  #content .section-row {
+    flex-direction: column;
+  }
+  #content .section-col .send {
+    width: 100%;
+  }
+  #content .user-info #name,
+  #content .user-info #email {
+    width: 100%;
+  }
+  .places-list .place-item .buy-tickets-button {
+    width: 100%;
+    font-size: 16px;
+  }
+}

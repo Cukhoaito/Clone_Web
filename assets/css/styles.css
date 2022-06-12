@@ -15,10 +15,12 @@ html {
 }
 .row {
   margin: 0 -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .col {
   padding: 0 8px;
-  float: left;
 }
 .col-third {
   width: calc(100% / 3);
@@ -54,6 +56,7 @@ html {
 
   animation: modalFadeIn ease 0.5s;
 }
+
 .modal .modal-header {
   background-color: #009688;
   height: 130px;
@@ -122,6 +125,8 @@ html {
   background-color: black;
   height: 46px;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
   z-index: 1;
   top: 0%;
   left: 0%;
@@ -132,6 +137,10 @@ html {
 }
 #nav li {
   list-style-type: none;
+  /* text-align: center; */
+}
+#nav > li:first-child {
+  width: fit-content;
 }
 #nav > li {
   display: inline-block;
@@ -160,7 +169,6 @@ html {
   position: absolute;
   top: 100%;
   left: 0%;
-
   background-color: white;
   display: none;
 }
@@ -178,29 +186,36 @@ html {
 .nav-arrow-down {
   font-size: 12px;
 }
-#search {
-  float: right;
+#search,
+#menu {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
   height: 46px;
   width: 64px;
-  position: relative;
+}
+#menu {
+  display: none;
 }
 #search:hover {
   cursor: pointer;
   background-color: red;
 }
-.search-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+#menu:hover {
+  background-color: gray;
+}
+.search-button,
+.menu-button {
+  margin: auto;
   color: white;
   font-size: 14px;
 }
 #slider {
   margin-top: 46px;
   padding-top: 50%;
-  background: url("/assets/img/slider/image_girl.jpg") top center / cover
-    no-repeat;
+  background: url("../img/slider/image_girl.jpg") top center / cover no-repeat;
   position: relative;
 }
 #text-content {
@@ -209,6 +224,7 @@ html {
   bottom: 5%;
   transform: translateX(-50%);
   text-align: center;
+  text-shadow: 0 0 1px black;
 }
 #text-content .text-heading {
   font-weight: 500;
@@ -222,8 +238,9 @@ html {
 #content {
 }
 #content .content-section {
-  width: 800px;
-  padding-top: 64px;
+  width: 950px;
+  max-width: 100%;
+  padding: 64px 16px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -242,18 +259,19 @@ html {
   opacity: 0.5;
 }
 #content .content-section .about-text {
-  font-size: 15px;
-  margin: 15px;
+  font-size: 17px;
+  margin: 15px 0px;
   line-height: 1.4;
+  font-weight: 500;
   text-align: justify;
 }
 #content .member-list {
-  padding-top: 32px;
+  padding-top: 0px;
 }
 
 #content .col-third .image {
-  width: 160px;
-  height: 160px;
+  width: 60%;
+  height: 174px;
   margin: 0 auto;
   background: top center / cover no-repeat;
   border-radius: 4px;
@@ -263,17 +281,16 @@ html {
   margin: 15px 0px;
 }
 #content .col-third > #GIRL-1 {
-  background-image: url("/assets/img/band/image-girl-1.jpg");
+  background-image: url("../img/band/image-girl-1.jpg");
 }
 #content .col-third > #GIRL-2 {
-  background-image: url("/assets/img/band/image-girl-2.jpg");
+  background-image: url("../img/band/image-girl-2.jpg");
 }
 #content .col-third > #GIRL-3 {
-  background-image: url("/assets/img/band/image-girl-3.jpg");
+  background-image: url("../img/band/image-girl-3.jpg");
 }
 #content .tour-section {
   background-color: black;
-  margin-top: 46px;
 }
 #content .tour-section .Date-Tickers {
   margin-top: 64px;
@@ -306,9 +323,7 @@ html {
   margin-top: 32px;
 }
 .places-list .place-item {
-  /* margin: 0 -8px; */
-  width: calc(100% / 3);
-  /* display: inline-block; */
+  width: 100%;
 }
 .places-list .place-item .place-image {
   width: 100%;
@@ -322,15 +337,13 @@ html {
   opacity: 0.7;
 }
 .places-list .place-item .place-image-QuatLam {
-  background: url("/assets/img/place/place-QuatLam.jpg") top center / cover
-    no-repeat;
+  background: url("../img/place/place-QuatLam.jpg") top center / cover no-repeat;
 }
 .places-list .place-item .place-image-DoSon {
-  background: url("/assets/img/place/place-DoSon.jpg") top center / cover
-    no-repeat;
+  background: url("../img/place/place-DoSon.jpg") top center / cover no-repeat;
 }
 .places-list .place-item .place-image-TranDuyHung {
-  background: url("/assets/img/place/plac-TranDuyHung.jpg") top center / cover
+  background: url("../img/place/plac-TranDuyHung.jpg") top center / cover
     no-repeat;
 }
 .places-list .place-item .place-content {
@@ -376,30 +389,35 @@ html {
   padding-bottom: 64px;
 }
 #content .section-row {
+  display: flex;
+  flex-direction: row;
   font-size: 15px;
   line-height: 1.6;
-  padding: 32px 0px;
+  padding-top: 32px;
 }
 #content .section-col {
-  float: left;
+  font-size: 16px;
+  font-weight: 510;
   width: 50%;
 }
 #content .section-col input {
   padding: 8px;
   border: 1px solid #ccc;
+  border-radius: 0px;
   line-height: 22.5px;
+  margin-bottom: 8px;
 }
 #content .section-col .user-info {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 #content .user-info #name {
   width: 49%;
-  float: left;
 }
 #content .user-info #email {
   width: 49%;
-  float: right;
 }
 #content .section-col #message {
   display: block;
@@ -411,6 +429,7 @@ html {
   background-color: black;
   text-transform: uppercase;
   font-size: 15px;
+  text-align: center;
   width: fit-content;
   padding: 8px 16px;
   margin: 16px 0px;
@@ -424,12 +443,12 @@ html {
 }
 #content .map-section .image {
   width: 100%;
-  background: url("/assets/img/band/Girl-4.jpg") top center / cover no-repeat;
-  height: 900px;
+  background: url("../img/band/Girl-4.jpg") top center / cover no-repeat;
+  padding-bottom: 50%;
 }
 .footer {
   width: 100%;
-  padding: 16px 16px 72px;
+  padding: 64px 16px 64px;
   text-align: center;
   opacity: 0.6;
 }

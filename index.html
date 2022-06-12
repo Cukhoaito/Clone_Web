@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
     <link
       rel="stylesheet"
       href="./assets/font/themify-icons-font/themify-icons/themify-icons.css"
@@ -37,6 +38,9 @@
         <!-- Begin search button -->
         <div id="search">
           <i class="search-button ti-search"></i>
+        </div>
+        <div id="menu">
+          <i class="menu-button ti-menu"></i>
         </div>
         <!-- End search button -->
       </div>
@@ -90,7 +94,7 @@
           <div class="clear"></div>
         </div>
 
-        <!-- Tour section -->]
+        <!-- Tour section -->
         <div id="tour" class="tour-section">
           <div class="content-section tour-content">
             <h2 class="section-heading text-white">TOUR DATES</h2>
@@ -165,7 +169,7 @@
           <div class="margin-page section-row">
             <div class="section-col section-col-info">
               <p class="address">
-                <i class="ti-pin"></i>
+                <i class="ti-location-pin"></i>
                 Thach That, Ha Noi
               </p>
 
@@ -267,6 +271,35 @@
         </div>
       </div>
     </div>
+
+    <script>
+      var header = document.getElementById("head");
+      var mobile = document.getElementById("menu");
+      var currentHeight = header.clientHeight;
+      mobile.onclick = function () {
+        var onCloser = header.clientHeight === currentHeight;
+        if (onCloser) {
+          header.style.height = "auto";
+        } else {
+          header.style.height = null;
+        }
+      };
+
+      var menuItems = document.querySelectorAll("#nav li a[href*='#']");
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].onclick = function (event) {
+          var IsParentMenu =
+            this.nextElementSibling &&
+            this.nextElementSibling.classList.contains("subnav");
+          if (!IsParentMenu) {
+            header.style.height = null;
+          } else {
+            event.preventDefault();
+          }
+        };
+      }
+    </script>
+
     <script>
       const buyBtns = document.querySelectorAll(".js-buy-btn");
       const modal = document.querySelector(".js-modal");
